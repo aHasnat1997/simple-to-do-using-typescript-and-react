@@ -6,9 +6,6 @@ function Form() {
     const [task, setTask] = useState('');
     const provider = ToDoCtx();
 
-    console.log(provider?.state);
-
-
     const submitHandler = (e: React.SyntheticEvent) => {
         e.preventDefault();
 
@@ -20,8 +17,6 @@ function Form() {
         }
 
         provider?.dispatch({ type: 'addToDo', payload: todo })
-
-
     }
     return (
         <form onSubmit={submitHandler}>
