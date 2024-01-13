@@ -2,9 +2,7 @@ import { ToDoCtx } from "../provider/ToDoProvider";
 
 function ListTable() {
     const provider = ToDoCtx();
-
     console.log(provider?.state);
-
 
     const timeOptions: Intl.DateTimeFormatOptions = { hour: 'numeric', minute: 'numeric', hour12: true };
     const dateOptions: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'numeric', year: 'numeric' };
