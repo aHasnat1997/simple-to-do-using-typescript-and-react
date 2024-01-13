@@ -8,7 +8,7 @@ export type TToDo = {
 }
 
 export type TAction = {
-    type: 'addToDo' | 'removeToDo',
+    type: 'addToDo' | 'completedToDo',
     payload: TToDo
 }
 

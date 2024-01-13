@@ -3,6 +3,9 @@ import { ToDoCtx } from "../provider/ToDoProvider";
 function ListTable() {
     const provider = ToDoCtx();
 
+    console.log(provider?.state);
+
+
     const timeOptions: Intl.DateTimeFormatOptions = { hour: 'numeric', minute: 'numeric', hour12: true };
     const dateOptions: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'numeric', year: 'numeric' };
 
@@ -19,7 +22,12 @@ function ListTable() {
                                     <p>{new Intl.DateTimeFormat('en-US', dateOptions).format(new Date(data.data))}</p>
                                 </td>
                                 <td>{data.text}</td>
-                                <td>{data.isCompleted ? 'done' : 'pending'}</td>
+                                <td
+                                    onClick={() => provider.dispatch({ type: 'completedToDo', payload: data })}
+                                    className="cursor-pointer"
+                                >{
+                                        data.isCompleted ? 'done' : 'pending'}
+                                </td>
                             </tr>)
                         }
                     </tbody>

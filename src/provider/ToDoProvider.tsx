@@ -6,7 +6,10 @@ const initialState: TToDo[] = [];
 const reducer = (currentState: TToDo[], action: TAction) => {
     switch (action.type) {
         case 'addToDo':
-            return [...currentState, action.payload]
+            return [...currentState, action.payload];
+        case 'completedToDo':
+            return currentState.map(item => action?.payload?.id === item?.id ? { ...item, isCompleted: !item.isCompleted }
+                : item);
         default:
             return currentState;
     }
